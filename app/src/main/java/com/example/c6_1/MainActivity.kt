@@ -42,8 +42,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY,20001).apply {
-            setMinUpdateIntervalMillis(20000)
+        locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY,1001).apply {
+            setMinUpdateIntervalMillis(1000)
         }.build()
 
         locationCallback = object : LocationCallback(){
@@ -53,7 +53,7 @@ class MainActivity : ComponentActivity() {
                     setContent {
                         Scaffold (modifier = Modifier.fillMaxSize()){ innerPadding ->
                             C6_1Theme {
-                                MainScreen(Modifier.padding(innerPadding),location)
+                                MainScreen(Modifier.padding(innerPadding), location)
                             }
                         }
 
